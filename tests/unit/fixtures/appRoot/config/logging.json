@@ -1,0 +1,16 @@
+{
+  "services" : [
+    {
+      "name" : "auth",
+      "enabled" : true,
+      "path" : "vfs://appRoot/log/",
+      "filename" : "auth.log"
+    },
+    {
+      "name" : "accounts",
+      "enabled" : false,
+      "path" : "vfs://appRoot/log/",
+      "filename" : "accounts.log"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "HPHIO/loggingConfigurator",
+  "description": "Loads and manages logging configuration files for an API service.",
+  "require": {
+    "php": "^7.2",
+    "league/container": "^3.2",
+    "monolog/monolog": "^1.23"
+  },
+  "require-dev": {
+    "php": "^7.2",
+    "mikey179/vfsStream": "^1.6",
+    "phpunit/phpunit": "^7.4"
+  }
+}
