@@ -9,7 +9,7 @@ Loads and manages logging configuration files for an API service.
 
 ## Installation
 
-`composer require hphio/loggingConfigurator`
+`composer require hphio/logging-configurator`
 
 ## Requirements
 

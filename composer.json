@@ -1,5 +1,5 @@
 {
-  "name": "HPHIO/loggingConfigurator",
+  "name": "HPHIO/logging-configurator",
   "description": "Loads and manages logging configuration files for an API service.",
   "require": {
     "php": "^7.2",
