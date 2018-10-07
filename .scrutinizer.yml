@@ -8,10 +8,10 @@ build:
         tests:
           override:
             - php-scrutinizer-run
-        coverage:
-            tests:
-                override:
-                    - command: vendor/phpunit/phpunit/phpunit
-                      coverage:
-                        file: coverage.xml   # <- Set this to where we find the coverage data.
-                        format: clover
+      coverage:
+          tests:
+              override:
+                  - command: vendor/phpunit/phpunit/phpunit
+                    coverage:
+                      file: coverage.xml   # <- Set this to where we find the coverage data.
+                      format: clover
