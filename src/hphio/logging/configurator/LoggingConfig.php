@@ -7,7 +7,7 @@
  * @author Michael Munger <mj@hph.io>
  */
 
-namespace hphio\util;
+namespace hphio\logging\configurator;
 
 
 class LoggingConfig
