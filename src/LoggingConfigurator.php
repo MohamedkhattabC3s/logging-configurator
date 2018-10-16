@@ -38,11 +38,20 @@ class LoggingConfigurator
     }
 
     public function loadLoggingConf() {
-        $this->configs = json_decode(file_get_contents($this->configDir . '/logging.json'));
+        $targetFile = $this->configDir . '/logging.json';
+
+        if(file_exists($targetFile) === false) {
+            $this->configs = json_encode([]);
+            return false;
+        }
+
+        $this->configs = json_decode(file_get_contents($targetFile));
         return (json_last_error() === JSON_ERROR_NONE);
     }
 
     public function getServiceLogConfig($logName) {
+
+        if(isset($this->configs->services) === false) return false;
 
         foreach($this->configs->services as $logObject) {
 
@@ -61,6 +70,8 @@ class LoggingConfigurator
      */
 
     public function getLogger(LoggingConfig $config) {
+
+        if(is_writable($config->path) === false) return false;
 
         $log = new Logger($config->name);
         $log->pushHandler(new StreamHandler($config->logPath(), Logger::INFO));

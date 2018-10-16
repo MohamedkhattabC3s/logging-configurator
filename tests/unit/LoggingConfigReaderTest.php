@@ -85,9 +85,14 @@ class loggingConfigReaderTest extends TestCase
         $this->applicationRoot = vfsStream::copyFromFileSystem(__DIR__ . '/fixtures/appRoot', $this->applicationRoot);
 
         $LogConfigurator->loadLoggingConf();
+
         $config = $LogConfigurator->getServiceLogConfig("auth");
 
         $logger = $LogConfigurator->getLogger($config);
+
+//        var_dump($config);
+//        var_dump($logger);
+//        die(__FILE__ . ":" . __LINE__);
 
         $logger->info("Test");
 
@@ -95,5 +100,16 @@ class loggingConfigReaderTest extends TestCase
 
         $this->assertGreaterThan(0, stripos(file_get_contents(vfsStream::url("appRoot/log/auth.log")), "Test"));
 
+    }
+
+    public function testConfigNotExistFailure() {
+        $LogConfigurator = $this->container->get(LoggingConfigurator::class);
+        $LogConfigurator->setAppRoot(vfsStream::url("/"));
+        $LogConfigurator->setConfigDir("/home/user/config");
+
+        $this->assertFalse($LogConfigurator->loadLoggingConf());
+
+        $config = $LogConfigurator->getServiceLogConfig("auth");
+        $this->assertFalse($config);
     }
 }
