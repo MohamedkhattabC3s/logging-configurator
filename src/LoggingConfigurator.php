@@ -25,6 +25,17 @@ class LoggingConfigurator
         $this->container = $container;
     }
 
+    public function getDefaultLogger( string $logName ) {
+        $this->applicationRoot = ($this->container->has('appRoot') ? $this->container->get('appRoot') : null );
+        $this->setConfigDir('config');
+        $this->loadLoggingConf();
+        $configs = $this->getServiceLogConfig($logName);
+
+        if($configs === false) return false;
+
+        return $this->getLogger($configs);
+    }
+
     public function setAppRoot($directory) {
         $this->applicationRoot = $directory;
     }
