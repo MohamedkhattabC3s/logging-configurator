@@ -2,12 +2,12 @@
   "name": "hphio/logging-configurator",
   "description": "Loads and manages logging configuration files for an API service.",
   "require": {
-    "php": "^7.2 || ^8.0 || ^8.1 ||^8.3",
+    "php": "^7.2 || ^8.0 || ^8.2 ||^8.3",
     "league/container": "^3.2",
     "monolog/monolog": "^1.23"
   },
   "require-dev": {
-    "php": "^7.2 || ^8.0 || ^8.1 ||^8.3",
+    "php": "^7.2 || ^8.0 || ^8.2 ||^8.3",
     "mikey179/vfsstream": "^1.6",
     "phpunit/phpunit": "^9.5"
   },
